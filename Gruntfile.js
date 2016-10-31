@@ -3,14 +3,14 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		sass: {
 			dist: {
-				files: [{
-		          expand: true,
-		          cwd: 'styles',
-		          src: ['*.scss'],
-		          dest: '../public',
-		          ext: '.css'
-		        }]
-			}
+		      files: [{
+		        expand: true,
+		        cwd: 'src/main/resources/static/scss',
+		        src: ['*.scss'],
+		        dest: 'src/main/resources/static/css',
+		        ext: '.css'
+		      }]
+		  }
 		},
 		watch: {
 			sass: {
@@ -21,5 +21,5 @@ module.exports = function(grunt) {
 	});
 	grunt.loadNpmTasks('grunt-contrib-sass'); /* requres gem install sass */
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.registerTask('default',[ 'sass:dist' /*, 'watch'*/]);
+	grunt.registerTask('default',['sass' /*, 'watch'*/]);
 }
